@@ -17,10 +17,10 @@ jobs:
 
     steps:
       - id: release
-        uses: google-github-actions/release-please-action@v4.1.1
+        uses: googleapis/release-please-action@v4
         with:
           release-type: helm
-          package-name: kyverno-policies
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   publish-chart:
     needs: release-please
@@ -32,6 +32,9 @@ jobs:
 
       - name: Install Helm
         uses: azure/setup-helm@v4
+
+      - name: Helm lint
+        run: helm lint .
 
       - name: Package Helm chart
         run: helm package .
