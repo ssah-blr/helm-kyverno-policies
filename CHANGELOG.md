@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ssah-blr/helm/compare/v1.0.1...v1.1.0) (2026-03-13)
+
+
+### Features
+
+* oci ([1ab564c](https://github.com/ssah-blr/helm/commit/1ab564c729174b91389a571095b3d1c5bb257c88))
+
 ## [1.0.1](https://github.com/ssah-blr/helm/compare/v1.0.0...v1.0.1) (2026-03-13)
 
 
