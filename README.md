@@ -20,6 +20,7 @@ Add the chart repository (optional if you host your own chart repo):
 ```bash
 $ helm repo add my-charts <CHART_REPO_URL>
 $ helm repo update
+```
 
 Install the chart into your desired namespace (e.g., kyverno-policies):
 
@@ -27,18 +28,24 @@ Install the chart into your desired namespace (e.g., kyverno-policies):
 $ helm install kyverno-policies ./helm \
 --namespace kyverno-policies \
 --create-namespace
+```
+---
 
-### Uninstalling the Chart
+## Uninstalling the Chart
 
 ```bash
 $ helm uninstall kyverno-policies --namespace kyverno-policies
+```
 
 This will remove all policies deployed by the chart.
 
-Testing Policies Locally
+---
+
+## Testing Policies Locally
 
 ```bash
 $ chmod +x test.sh
 $ ./test.sh
+```
 
 This will validate all policies in the chart against the sample test resources in the templates/*/tests directories.
