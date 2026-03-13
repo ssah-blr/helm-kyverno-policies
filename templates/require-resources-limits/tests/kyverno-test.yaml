@@ -1,0 +1,39 @@
+apiVersion: cli.kyverno.io/v1alpha1
+kind: Test
+metadata:
+  name: require-resources-limits-test
+
+policies:
+  - ../require-resources-limits.yaml
+
+resources:
+  - resources.yaml
+
+results:
+  - policy: require-resources-limits
+    rule: validate-resources
+    resources:
+      - pod-pass
+    kind: Pod
+    result: pass
+
+  - policy: require-resources-limits
+    rule: validate-resources
+    resources:
+      - pod-fail-no-limits
+    kind: Pod
+    result: fail
+
+  - policy: require-resources-limits
+    rule: validate-resources
+    resources:
+      - pod-fail-no-cpu
+    kind: Pod
+    result: fail
+
+  - policy: require-resources-limits
+    rule: validate-resources
+    resources:
+      - pod-fail-no-memory
+    kind: Pod
+    result: fail

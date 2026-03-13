@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-pass
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      resources:
+        limits:
+          cpu: "500m"
+          memory: "256Mi"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-fail-no-limits
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-fail-no-cpu
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      resources:
+        limits:
+          memory: "256Mi"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-fail-no-memory
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      resources:
+        limits:
+          cpu: "500m"

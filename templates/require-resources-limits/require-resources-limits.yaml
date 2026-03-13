@@ -1,0 +1,30 @@
+{{- if .Values.policies.requireResourceLimits.enabled }}
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-resources-limits
+  annotations:
+    # policies.kyverno.io/severity: {{ .Values.policies.requireResourceLimits.severity }}
+    policies.kyverno.io/description: >-
+      Disallow Pods which do not have limits for CPU and memory
+      To Enforce resources usage control.
+spec:
+  validationFailureAction: {{ .Values.policies.requireResourceLimits.action }}
+  # validationFailureAction: Enforce
+  background: true
+  rules:
+    - name: validate-resources
+      match:
+        resources:
+          kinds:
+            - Pod
+      validate:
+        message: "CPU and memory limits are required"
+        pattern:
+          spec:
+            containers:
+              - resources:
+                  limits:
+                    memory: "?*"
+                    cpu: "?*"
+{{ end }}
