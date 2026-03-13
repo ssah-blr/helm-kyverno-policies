@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  packages: write   # needed to push to GHCR
 
 jobs:
   release-please:
@@ -34,6 +35,11 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v4
 
+      - name: Enable OCI support
+        run: |
+          export HELM_EXPERIMENTAL_OCI=1
+          helm version
+
       - name: Helm lint
         run: helm lint .
 
@@ -42,6 +48,15 @@ jobs:
 
       - name: Package Helm chart
         run: helm package .
+
+      - name: Login to GitHub Container Registry
+        run: |
+          echo ${{ secrets.GHCR_TOKEN }} | helm registry login ghcr.io --username ${{ github.actor }} --password-stdin
+
+      - name: Push Helm chart as OCI artifact
+        run: |
+          CHART_FILE=$(ls *.tgz)
+          helm push "$CHART_FILE" oci://ghcr.io/${{ github.repository_owner }}/helm-charts
 
       - name: Upload chart artifact
         uses: actions/upload-artifact@v4
