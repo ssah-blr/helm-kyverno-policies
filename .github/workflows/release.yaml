@@ -21,6 +21,7 @@ jobs:
         with:
           release-type: helm
           token: ${{ secrets.GITHUB_TOKEN }}
+          skip-github-labels: true
 
   publish-chart:
     needs: release-please
@@ -35,6 +36,9 @@ jobs:
 
       - name: Helm lint
         run: helm lint .
+
+      - name: Helm dependency update
+        run: helm dependency update
 
       - name: Package Helm chart
         run: helm package .
