@@ -1,0 +1,8 @@
+{
+  "release-type": "helm",
+  "packages": {
+    ".": {
+      "package-name": "kyverno-policies"
+    }
+  }
+}
