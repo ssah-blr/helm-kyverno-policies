@@ -36,6 +36,9 @@ jobs:
       - name: Helm lint
         run: helm lint .
 
+      - name: Helm dependency update
+        run: helm dependency update
+
       - name: Package Helm chart
         run: helm package .
 
