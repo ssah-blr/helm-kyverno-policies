@@ -13,6 +13,8 @@ permissions:
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    env:
+      HELM_EXPERIMENTAL_OCI: "1"
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
 
@@ -35,10 +37,8 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v4
 
-      - name: Enable OCI support
-        run: |
-          export HELM_EXPERIMENTAL_OCI=1
-          helm version
+      - name: Verify Helm Version
+        run: helm version
 
       - name: Helm lint
         run: helm lint .

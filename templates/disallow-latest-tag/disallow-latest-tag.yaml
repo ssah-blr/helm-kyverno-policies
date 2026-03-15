@@ -1,4 +1,4 @@
-{{- if .Values.policies.requireResourceLimits.enabled }}
+{{- if .Values.policies.disallowLatestPolicy.enabled }}
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
