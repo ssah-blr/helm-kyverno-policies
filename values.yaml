@@ -2,8 +2,8 @@ policies:
   disallowLatestPolicy:
     enabled: true
     severity: medium
-    action: Enforce
+    action: enforce
   requireResourceLimits:
     enabled: true
     severity: medium
-    action: Enforce    
+    action: enforce
