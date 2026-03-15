@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/ssah-blr/helm-kyverno-policies/compare/v1.2.0...v1.2.1) (2026-03-15)
+
+
+### Bug Fixes
+
+* test ([#15](https://github.com/ssah-blr/helm-kyverno-policies/issues/15)) ([4a10e7c](https://github.com/ssah-blr/helm-kyverno-policies/commit/4a10e7ce5c3b9f961114c6561b9e675db52d071b))
+
 ## [1.2.0](https://github.com/ssah-blr/helm-kyverno-policies/compare/v1.1.0...v1.2.0) (2026-03-15)
 
 
