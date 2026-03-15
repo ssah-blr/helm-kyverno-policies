@@ -4,7 +4,7 @@ kind: ClusterPolicy
 metadata:
   name: require-resources-limits
   annotations:
-    # policies.kyverno.io/severity: {{ .Values.policies.requireResourceLimits.severity }}
+    policies.kyverno.io/severity: {{ .Values.policies.requireResourceLimits.severity }}
     policies.kyverno.io/description: >-
       Disallow Pods which do not have limits for CPU and memory
       To Enforce resources usage control.
