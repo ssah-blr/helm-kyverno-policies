@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/ssah-blr/helm-kyverno-policies/compare/v1.2.1...v1.2.2) (2026-03-19)
+
+
+### Bug Fixes
+
+* add NS exclude ([#17](https://github.com/ssah-blr/helm-kyverno-policies/issues/17)) ([ee2fb05](https://github.com/ssah-blr/helm-kyverno-policies/commit/ee2fb05326e2c4a336720dae1359d6fa570f557b))
+
 ## [1.2.1](https://github.com/ssah-blr/helm-kyverno-policies/compare/v1.2.0...v1.2.1) (2026-03-15)
 
 
