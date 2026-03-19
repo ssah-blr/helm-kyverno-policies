@@ -2,6 +2,7 @@ apiVersion: cli.kyverno.io/v1alpha1
 kind: Test
 metadata:
   name: disallow-latest-tag-test
+
 policies:
   - ../disallow-latest-tag.yaml
 
@@ -22,3 +23,12 @@ results:
       - nginx-fail
     kind: Pod
     result: fail
+
+  - policy: disallow-latest-tag
+    rule: validate-image-tag
+    resources:
+      - nginx-latest-argocd
+      - nginx-latest-kube-system
+      - nginx-latest-kyverno-policies
+    kind: Pod
+    result: skip
