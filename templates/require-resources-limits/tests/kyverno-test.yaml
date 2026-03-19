@@ -37,3 +37,12 @@ results:
       - pod-fail-no-memory
     kind: Pod
     result: fail
+
+  - policy: require-resources-limits
+    rule: validate-resources
+    resources:
+      - pod-no-limits-argocd
+      - pod-no-limits-kube-system
+      - pod-no-limits-kyverno-policies
+    kind: Pod
+    result: skip

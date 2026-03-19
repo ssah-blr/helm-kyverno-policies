@@ -17,6 +17,12 @@ spec:
         resources:
           kinds:
             - Pod
+      exclude:
+        resources:
+          namespaces:
+            - argocd
+            - kube-system
+            - kyverno-policies
       validate:
         message: "Using 'latest' tag is not allowed."
         pattern:

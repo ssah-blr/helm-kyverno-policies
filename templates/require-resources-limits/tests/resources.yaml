@@ -43,3 +43,33 @@ spec:
       resources:
         limits:
           cpu: "500m"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-no-limits-argocd
+  namespace: argocd
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-no-limits-kube-system
+  namespace: kube-system
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-no-limits-kyverno-policies
+  namespace: kyverno-policies
+spec:
+  containers:
+    - name: nginx
+      image: nginx
